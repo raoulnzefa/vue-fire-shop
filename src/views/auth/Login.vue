@@ -6,9 +6,9 @@
 </template>
 
 <script>
-import AuthFormComponent from "../components/forms/Auth";
-import AlertComponent from "../components/Alert";
-import { db } from "../main";
+import AuthFormComponent from "../../components/forms/Auth";
+import AlertComponent from "../../components/Alert";
+import { db } from "../../main";
 
 export default {
   components: { AuthFormComponent, AlertComponent },

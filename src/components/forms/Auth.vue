@@ -46,8 +46,9 @@ export default {
       emailRules: [
         v => !!v || this.$t("validations.required", { field: "E-mail" }),
         v =>
-          /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
-          this.$t("validations.email", { field: "E-mail" })
+          /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+            v
+          ) || this.$t("validations.email", { field: "E-mail" })
       ],
       password: "",
       passwordRules: [
