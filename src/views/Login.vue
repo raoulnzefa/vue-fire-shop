@@ -1,20 +1,17 @@
 <template>
   <div>
-    <AuthFormComponent action="register" v-on:process="register($event)"/>
+    <AuthFormComponent action="login" v-on:process="login($event)"/>
     <AlertComponent v-if="show" :show="show" :message="message" :timeout="timeout"/>
   </div>
 </template>
 
 <script>
-import AlertComponent from "../components/Alert";
 import AuthFormComponent from "../components/forms/Auth";
+import AlertComponent from "../components/Alert";
 import { db } from "../main";
 
 export default {
-  components: {
-    AlertComponent,
-    AuthFormComponent
-  },
+  components: { AuthFormComponent, AlertComponent },
   data() {
     return {
       show: false,
@@ -23,16 +20,14 @@ export default {
     };
   },
   methods: {
-    register(user) {
+    login(user) {
       this.$store
-        .dispatch("register", user)
-        .then(({ user: { email, uid } }) => {
-          const role = "customer";
+        .dispatch("login", user)
+        .then(({ user: { uid, email } }) => {
           db.collection("users")
             .doc(uid)
-            .set({ uid, email, role })
-            .then(() => {
-              this.$store.commit("setRole", role);
+            .onSnapshot(snapshot => {
+              this.$store.commit("setRole", snapshot.data().role);
               this.$router.push("/");
             });
         })
