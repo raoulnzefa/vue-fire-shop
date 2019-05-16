@@ -64,7 +64,9 @@ export default {
           this.$store.commit("setAlertMessage", {
             show: true,
             type: "success",
-            message: this.$t("message.save", { item: this.$t("common.user") }),
+            message: this.$t("messages.saved", {
+              item: this.$t("common.user")
+            }),
             timeout: 5000
           });
           this.close();
@@ -79,7 +81,7 @@ export default {
           this.$store.commit("setAlertMessage", {
             show: true,
             type: "success",
-            message: this.$t("message.updated", {
+            message: this.$t("messages.updated", {
               item: this.$t("common.user")
             }),
             timeout: 5000

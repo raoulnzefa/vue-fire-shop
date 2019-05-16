@@ -4,6 +4,10 @@
       <NavbarComponent v-if="role === 'guest'"/>
       <AdminNavbarComponent v-if="role === 'admin'"/>
       <v-container class="mt-3 mb-3">
+        <v-alert
+          :type="$store.state.alert.type"
+          :value="$store.state.alert.show"
+        >{{ $store.state.alert.message }}</v-alert>
         <router-view/>
       </v-container>
       <FooterComponent/>

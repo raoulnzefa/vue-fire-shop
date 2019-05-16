@@ -1,29 +1,8 @@
-# vue-fire-shop
+# Serverless Vue.js online shop
 
-## Project setup
-```
-npm install
-```
+Fast implementation of **Firebase services on Vue.js** without third party libraries
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Future fetures
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- Convert to PWA
+- Implement push notifications
